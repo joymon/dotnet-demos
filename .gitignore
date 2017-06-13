@@ -2,4 +2,8 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/patterns-practices/DI/unity/Interception/binaries
+/**/binaries
+*.suo
+/**/packages
+/**/bin/Debug
+/**/obj/Debug

@@ -1,0 +1,38 @@
+﻿<unity xmlns="http://schemas.microsoft.com/practices/2010/unity">
+  <assembly name="Unity_Interception" />
+  <sectionExtension type="Microsoft.Practices.Unity.InterceptionExtension.Configuration.InterceptionConfigurationExtension, Microsoft.Practices.Unity.Interception.Configuration" />
+
+  <container>
+    <extension type="Interception" />
+    <interception>
+      <policy name="logging">
+        <matchingRule type="Microsoft.Practices.Unity.InterceptionExtension.NamespaceMatchingRule, Microsoft.Practices.Unity.Interception" name="Namespace Matching Rule">
+          <constructor>
+            <param name="namespaceName" value="Unity_Interception.*" />
+          </constructor>
+        </matchingRule>
+        <callHandler name="LogHandler" type="Unity_Interception.LogCallHandler">
+          <lifetime type="singleton" />
+        </callHandler>
+      </policy>
+    </interception>
+    <register type="Unity_Interception.IContainerLoader" mapTo="Unity_Interception.UnityContainerLoader" >
+      <interceptor type="InterfaceInterceptor" />
+      <interceptionBehavior type="PolicyInjectionBehavior" />
+    </register>
+    <register type="Unity_Interception.ICalculator" mapTo="Unity_Interception.Calculator" >
+      <lifetime type="singleton" />
+      <interceptor type="InterfaceInterceptor" />
+      <interceptionBehavior type="PolicyInjectionBehavior" />
+    </register>
+    <register type="Unity_Interception.IWriter" mapTo="Unity_Interception.ConsoleWriter" >
+      <lifetime type="singleton" />
+      <interceptor type="InterfaceInterceptor" />
+      <interceptionBehavior type="PolicyInjectionBehavior" />
+    </register>
+    <register type="Unity_Interception.IOperation" mapTo="Unity_Interception.AddAndWriteToConsoleOperation" >
+      <interceptor type="InterfaceInterceptor" />
+      <interceptionBehavior type="PolicyInjectionBehavior" />
+    </register>
+  </container>
+</unity>
