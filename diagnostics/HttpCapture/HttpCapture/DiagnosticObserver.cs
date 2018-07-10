@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace HttpCapture
 {
-    class HttpListener : IObserver<DiagnosticListener>
+    class DiagnosticObserver : IObserver<DiagnosticListener>
     {
         void IObserver<DiagnosticListener>.OnCompleted()
         {

@@ -24,14 +24,14 @@ namespace HttpCapture
         private async void MakeHttpCallbutton_Click(object sender, EventArgs e)
         {
             WebClient wc = new WebClient();
-            string s = await wc.DownloadStringTaskAsync(@"https://api.pi.delivery/v1/pi?start=0&numberOfDigits=5");
-            MessageBox.Show($"Downloaded using WebClient - {s}");
+            string result = await wc.DownloadStringTaskAsync(@"https://api.pi.delivery/v1/pi?start=0&numberOfDigits=5");
+            MessageBox.Show($"Downloaded using WebClient - {result}");
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            HttpListener list = new HttpListener();
+            DiagnosticObserver list = new DiagnosticObserver();
             DiagnosticListener.AllListeners.Subscribe(list);
             _textBoxListener = new TextBoxTraceListener(LogstextBox);
             Trace.Listeners.Add(_textBoxListener);
@@ -40,8 +40,8 @@ namespace HttpCapture
         private async void MakeHttpCallUsingHttpClientbutton_Click(object sender, EventArgs e)
         {
             HttpClient client = new HttpClient();
-            string s = await client.GetStringAsync(@"https://api.pi.delivery/v1/pi?start=0&numberOfDigits=6");
-            MessageBox.Show($"Downloaded using HttpClient - {s}");
+            string result = await client.GetStringAsync(@"https://api.pi.delivery/v1/pi?start=0&numberOfDigits=6");
+            MessageBox.Show($"Downloaded using HttpClient - {result}");
         }
     }
 }

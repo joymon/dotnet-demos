@@ -27,7 +27,6 @@ namespace HttpCapture
                     Trace.WriteLine($"Http outgoing intercepted - Destination {req.Address}");
                 }
             }
-            //throw new NotImplementedException();
         }
     }
 }
