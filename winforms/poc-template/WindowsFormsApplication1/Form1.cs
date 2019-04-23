@@ -42,7 +42,6 @@ namespace WindowsFormsApplication1
             {
                 Task.Run(() =>
                 {
-                    DownloadBlob(index, SATextBox.Text, BlobContainerTextBox.Text);
                 });
             });
         }
