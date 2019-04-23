@@ -34,7 +34,6 @@ namespace WindowsFormsApplication1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            DownloadInParallel(Convert.ToInt32(NumberOfDownloadsNumericUpDown.Value));
         }
 
         private void DownloadInParallel(int numberOfThreads)
@@ -84,7 +83,6 @@ namespace WindowsFormsApplication1
             }
             finally
             {
-                UploadUsingAzCopyButton.Enabled = true;
             }
         }
         private async void UploadUsingAzCopySDKbutton_Click(object sender, EventArgs e)
@@ -98,7 +96,6 @@ namespace WindowsFormsApplication1
             }
             finally
             {
-                UploadUsingAzCopySDKbutton.Enabled = true;
             }
         }
         private void InitializeFileWatcher(string logPath)
@@ -120,8 +117,6 @@ namespace WindowsFormsApplication1
         {
             TextBoxTraceListener _textBoxListener = new TextBoxTraceListener(LogsTextBox);
             Trace.Listeners.Add(_textBoxListener);
-            ParallelOperationsnumericUpDown.Value = 8 * Environment.ProcessorCount;
-            BlockSizelabel.Text = BlockSizetrackBar.Value.ToString();
             Trace.WriteLine("Application started");
         }
 
@@ -129,7 +124,6 @@ namespace WindowsFormsApplication1
         {
             try
             {
-                UploadFilesUsingAzCopySDKbutton.Enabled = false;
                 Stopwatch sw = new Stopwatch();
                 sw.Start();
                 //Task.WaitAll(tasks);
@@ -142,13 +136,11 @@ namespace WindowsFormsApplication1
             }
             finally
             {
-                UploadFilesUsingAzCopySDKbutton.Enabled = true;
             }
         }
 
         private void BlockSizetrackBar_Scroll(object sender, EventArgs e)
         {
-            BlockSizelabel.Text = BlockSizetrackBar.Value.ToString() ;
         }
     }
 }
