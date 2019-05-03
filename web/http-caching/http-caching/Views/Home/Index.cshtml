@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET - Http caching basics</h1>
+    <p class="lead">Testing http basics when cache-control, Expires and ETag are present in different combinations.</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row" ng-app="httpcaching" ng-controller="RESTClientController">
+    <div class="col-md-4">
+        <h2>Http Caching</h2>
+
+        <div>
+
+            Radius of circle <input type="number" ng-model="radius" width="4" value="3" />
+            Result - {{message}}<br />
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Individual operations</div>
+                    <div class="panel-body">
+                        <button ng-click="findAreaWithcachecontrol()">Find Area with cache-control in header</button>
+
+                        <button ng-click="findAreaWithexpires()">Find Area with expires</button>
+                        <button ng-click="findAreaWithETag()">Find Area with ETag</button>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Combination operations</div>
+                    <div class="panel-body">
+                        Select response headers : <br />
+                        <input type="checkbox" ng-model="expires" value="expires"> Expires
+                        <input type="checkbox" ng-model="cachecontrol" value="cachecontrol"> cache-control
+                        <input type="checkbox" ng-model="etag" value="etag"> ETag <br />
+                        <button ng-click="findArea()">Find Area</button>
+                    </div>
+                </div>
+            </div>
+            @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>*@
+
+        </div>
+    </div>
+    <div class="col-md-8">
+        <h2>Details - Individual operations</h2>
+        <ol>
+            <li>Find Area -> Simple call - Cache-Control:No-cache cache headers in the response by WebAPI</li>
+            <li>Find Area with cache-control in header-> The reponse of this call will have cache-header:maxage=60 - The subsequence calls within 60 seconds will not go to server </li>
+            <li>Find Area with cache-control in header-> The reponse of this call will have cache-header:maxage=60 - The subsequence calls within 60 seconds will not go to server </li>
+        </ol>
+        <h2>Details - Combination operations</h2>
+        <ol>
+            <li>Expires -> Choose this to get Expires header to next 30 seconds</li>
+            <li>Cache-Control -> Choose this to add cache-control for 60seconds. If Expires is also selected. Expires gets priority</li>
+            <li>ETag -> Choose this to get Etag header. This works with other header. If any of other headers present, the calls will be made to server only after the expiry </li>
+            <li>None -> If none of the check boxes checked, it will return normal response where cache-control:no-store, Expires:-1 and no ETag header at all</li>
+        </ol>
+    </div>
+</div>
+</div>

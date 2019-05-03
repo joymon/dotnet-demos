@@ -9,4 +9,6 @@
 /**/obj/Debug
 /data/relational/sql-server/MultitenantDBUsingRLS
 *.ide
-/winforms/poc-template/.vs/
+/**/.vs
+/web/http-caching/http-caching/bin
+/**/obj/Release
