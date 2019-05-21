@@ -5,11 +5,9 @@
 /**/binaries
 *.suo
 /**/packages
-/**/bin/Debug
 /**/obj/Debug
 /data/relational/sql-server/MultitenantDBUsingRLS
 *.ide
 /**/.vs
-/web/http-caching/http-caching/bin
 /**/obj/Release
-/web/iis/time-taken-field-demo/TestServer/bin
+/**/bin
