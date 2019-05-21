@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestClientApplication", "TestClientApplication\TestClientApplication.csproj", "{20EFDCE7-FAAF-48EC-8811-5B068B5AE4D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTakenTestServer", "TestServer\TimeTakenTestServer.csproj", "{6FBB6CAF-6E05-46C0-9AE1-D9ACEC9A8077}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20EFDCE7-FAAF-48EC-8811-5B068B5AE4D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20EFDCE7-FAAF-48EC-8811-5B068B5AE4D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20EFDCE7-FAAF-48EC-8811-5B068B5AE4D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20EFDCE7-FAAF-48EC-8811-5B068B5AE4D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FBB6CAF-6E05-46C0-9AE1-D9ACEC9A8077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FBB6CAF-6E05-46C0-9AE1-D9ACEC9A8077}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FBB6CAF-6E05-46C0-9AE1-D9ACEC9A8077}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FBB6CAF-6E05-46C0-9AE1-D9ACEC9A8077}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {62E75882-02C1-4CCB-A095-B4093A12DC01}
+	EndGlobalSection
+EndGlobal

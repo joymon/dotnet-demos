@@ -12,3 +12,4 @@
 /**/.vs
 /web/http-caching/http-caching/bin
 /**/obj/Release
+/web/iis/time-taken-field-demo/TestServer/bin
