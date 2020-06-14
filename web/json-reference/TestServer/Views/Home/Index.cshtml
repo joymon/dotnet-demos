@@ -1,0 +1,37 @@
+﻿<div class="jumbotron">
+    <h1>ASP.NET - JSON Reference Demo</h1>
+    <p class="lead">This is a ASP.Net MVC & WebAPI with AngularJS demo application to show case how to reduce the JSON payload if there are repeating objects.</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <p>At this point, the server returns JSON with $ref but AngularJS/Chrome is not able to substitute actual object</p>
+</div>
+<div class="row" ng-app="jsonref" ng-controller="RESTClientController">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            Click below buttong tp make a call to ../api/files
+        </p>
+        <button ng-click="getFiles()">Get Files</button>
+        <p>
+            Raw Result - {{message}}<br />
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Parsed result</h2>
+        <p>This is just a loop and display of result to ensure the client doesn't needs to change based on $ref is there or not.</p>
+        <ol>
+            <li ng-repeat="fileInfo in message track by $index">
+                {{fileInfo.Folder.Machine}}:{{fileInfo.Folder.Path}}-{{fileInfo.Name}}
+
+            </li>
+        </ol>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>What is done to get $id and $ref in JSON output? </h2>
+        <p>Add below line in WebApiConfig</p>
+        <p>config.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;</p>
+        <p>Try chaging the value in server to see how it affect the result JSON</p>
+        <p><a class="btn btn-default" href="https://docs.microsoft.com/en-us/aspnet/web-api/overview/formats-and-model-binding/json-and-xml-serialization#handling-circular-object-references">Learn more &raquo;</a></p>
+    </div>
+</div>
+@Scripts.Render("~/bundles/app")
