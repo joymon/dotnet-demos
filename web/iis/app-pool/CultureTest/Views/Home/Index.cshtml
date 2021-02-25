@@ -1,0 +1,81 @@
+﻿@using System.Security.Cryptography.X509Certificates
+<div class="jumbotron">
+    <h1>AppPool LoadUserProfile Demo</h1>
+    <p class="lead">ASP.NET AppPool LoadUserProfile Demo - Shows the differences when its on or off</p>
+    
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <h2>Environment Settings</h2>
+        <p>
+            HttpContext.Current.User.Identity.Name - @HttpContext.Current.User.Identity.Name<br />
+            Thread.CurrentPrincipal.Identity.Name - @System.Threading.Thread.CurrentPrincipal.Identity.Name<br />
+            WindowsIdentity.GetCurrent().Name - @System.Security.Principal.WindowsIdentity.GetCurrent().Name<br />
+
+        </p>
+        <p>
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) - @Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) <br />
+            Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) - @Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) <br />
+
+            Path.GetTempPath() - @Path.GetTempPath()<br />
+            Path.GetTempPath("%temp%") - @Environment.GetEnvironmentVariable("%temp%")<br />
+
+            AppDomain.CurrentDomain.GetData("DataDirectory") - @AppDomain.CurrentDomain.GetData("DataDirectory")<br />
+
+
+        </p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+
+        <h2>Culture Settings</h2>
+        <p>
+            Thread.CurrentThread.CurrentCulture.Name - @System.Threading.Thread.CurrentThread.CurrentCulture.Name <br />
+            Thread.CurrentThread.CurrentUICulture.Name - @System.Threading.Thread.CurrentThread.CurrentUICulture.Name <br />
+
+        </p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-md-8">
+        <h2>Certificate store</h2>
+        <p>Certs in my store</p>
+        <p>
+            @{
+                X509Store store = new X509Store(StoreLocation.CurrentUser);
+                store.Open(OpenFlags.ReadOnly);
+                foreach (X509Certificate2 mCert in store.Certificates)
+                {
+                    @mCert.Thumbprint @mCert.FriendlyName
+                    <br />
+                }
+            }
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Culture tests</h2>
+        <p>
+            DateTime.Now - @DateTime.Now<br />
+            DateTime.Now.ToString() - @DateTime.Now.ToString()<br />
+            DateTime.Now.ToString(CultureInfo.InvariantCulture) - @DateTime.Now.ToString(System.Globalization.CultureInfo.InvariantCulture)<br />
+            DateTime.Now.ToString(CultureInfo.CurrentCulture) - @DateTime.Now.ToString(System.Globalization.CultureInfo.CurrentCulture)<br />
+            DateTime.Now.ToString(CultureInfo.CurrentUICulture) - @DateTime.Now.ToString(System.Globalization.CultureInfo.CurrentUICulture)<br />
+
+        </p>
+        <p>
+            @{double i = 10001.4524;}
+            10001.4524 - @i <br />
+            double.ToString() - @i.ToString()<br />
+            double.ToString(CultureInfo.InvariantCulture) - @i.ToString(System.Globalization.CultureInfo.InvariantCulture)<br />
+            double.ToString(CultureInfo.CurrentCulture) - @i.ToString(System.Globalization.CultureInfo.CurrentCulture)<br />
+            double.ToString(CultureInfo.CurrentUICulture) - @i.ToString(System.Globalization.CultureInfo.CurrentUICulture)<br />
+            String.Format("{0:n}", 1234.567) - @String.Format("{0:n}", 1234.567)
+
+        </p>
+    </div>
+
+</div>
