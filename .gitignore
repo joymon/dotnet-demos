@@ -4,10 +4,11 @@
 
 /**/binaries
 *.suo
+*.user
 /**/packages
 /**/obj/Debug
 /data/relational/sql-server/MultitenantDBUsingRLS
 *.ide
 /**/.vs
-/**/obj/Release
+/**/obj/
 /**/bin
