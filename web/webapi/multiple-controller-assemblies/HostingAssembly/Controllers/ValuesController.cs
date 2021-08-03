@@ -11,6 +11,11 @@ namespace HostingAssembly.Controllers
     public class ValuesController : ControllerBase
     {
         // GET api/values
+    
+        /// <summary>
+        /// This is test API for echo
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
@@ -18,10 +23,15 @@ namespace HostingAssembly.Controllers
         }
 
         // GET api/values/5
+        /// <summary>
+        /// Get by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            return "value";
+            return "value " + ++id;
         }
 
         // POST api/values
