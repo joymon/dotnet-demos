@@ -42,7 +42,7 @@ metadata:
     app: weather-forecast
     service: webapi
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
     - port: 8080
       targetPort : 80
@@ -57,7 +57,7 @@ metadata:
   namespace: simplek8shosting-ingress
 spec:
   rules:
-  - host: simplek8shostingviahostfile.io   
+  - host: simplek8shostingviahostfile.io # Modify the local machine's' hosts file with a line 127.0.0.1 simplek8shostingviahostfile.io
     http:
       paths:
       - path: /
