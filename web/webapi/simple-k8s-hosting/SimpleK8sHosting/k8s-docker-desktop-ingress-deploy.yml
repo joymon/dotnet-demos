@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: webapicontainer
-          image: joymon/simplek8shosting:0.0.3
+          image: joymon/simplek8shosting:0.0.6
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
