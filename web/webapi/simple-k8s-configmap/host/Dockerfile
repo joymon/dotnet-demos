@@ -7,17 +7,18 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["SimpleK8sHosting.csproj", "."]
-RUN dotnet restore "./SimpleK8sHosting.csproj"
+COPY ["host/host.csproj", "host/"]
+COPY ["ShapesClassLibrary/ShapesClassLibrary.csproj", "ShapesClassLibrary/"]
+RUN dotnet restore "host/host.csproj"
 COPY . .
-RUN ls
-WORKDIR "/src/."
-RUN dotnet build "SimpleK8sHosting.csproj" -c Release -o /app/build
+WORKDIR "/src/host"
+RUN dotnet build "host.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "SimpleK8sHosting.csproj" -c Release -o /app/publish
+RUN dotnet publish "host.csproj" -c Release -o /app/publish
+RUN ls /app/publish 
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "SimpleK8sHosting.dll"]
+ENTRYPOINT ["dotnet", "host.dll"]
