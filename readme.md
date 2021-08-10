@@ -4,7 +4,7 @@
 
 > Each demo will be its own repository there instead of folder in this repository.
 
-# Why moving demos to separate organization
+## Why moving demos to separate organization
 
 - Keeping all demos in same repo is difficult for users to clone / download particular demo.
 - It is difficult to setup DevOps pipelines.
