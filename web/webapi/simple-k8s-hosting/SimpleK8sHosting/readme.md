@@ -16,10 +16,13 @@ Demonstrate a sample WebAPI is hosted into Kubernetes running using DockerDeskto
   - The sample uses Docker Hub for images
 - Apply the file k8s-docker-desktop-deploy.yml using kubectl
 - Get the list of services in the deployment and get the NodePort number
-- Navigate to http://localhost:<port number>/WeatherForecast
+- Navigate to http://localhost:{port number}/WeatherForecast
 
 The API will return random weather data.
 
+# On the internet
+- [YouTube Video](https://youtu.be/dYMpK1f3aSQ) 
+ 
 # Points to note
 - The K8s file k8s-docker-desktop-deploy.yml is targeted to deploy into local dev environments that run using Docker Desktop
 - If it needs to be deployed to cloud such as Azure the service needs to use LoadBalancer instead of NodePort  
